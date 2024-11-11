@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p>ငွေပထဝီ အပြောင်းအလဲနှင့် ဒေါ်လာနန်းချ ရမရ ပြဿနာ ငွေကြေးနှင့် ပထဝီ ငွေအသပြာ ပထဝီသည် အပြောင်းအလဲ ဖြစ်သွားသည်။ ရှေးပဝေသဏီက ပစ္စည်း တစ်ခုခုကို အသပြာဖြင့် သုံးစွဲသည်။ အထင်ရှားဆုံးက ရွှေ ဖြစ်သည်။ ထိုစဉ်က အသပြာ၌ ပထဝီ မရှိပေ။ နယ်မြေပိုင်နက် မရှိပေ။ ဘုရင်က ဖြစ်စေ၊ မြို့စားက ဖြစ် စေ၊ ပုရောဟိတ်က ဖြစ်စေ သွန်းလုပ်သော ငွေအသပြာသည် ဘယ်နေရာ ဘယ်ဒေသ တို့၌သာ တရားဝင်သည် ဟူ၍မရှိ၊ လက်ခံသုံးစွဲသည့် နေရာတိုင်း၌ တရားဝင်သည်။ သို့သော် ၁၆၈၄ ခုနှစ်၌ ဝက်(စ်)ဖါလီးယား ငြိမ်းချမ်းရေး စာချုပ်ချုပ်ဆို ပြီး ပေါ်လာသည်။ အနှစ် သုံးဆယ်ကြာ ဘာသာရေး စစ်ပွဲတို့ကို အဆုံးသတ်ရန် ရည်ရွယ်ချက်တို့ဖြင့် ဤစာချုပ် ချုပ်ဆိုခဲ့ကြခြင်း ဖြစ်သည်။ ဤစာချုပ်မှနေ၍ အမျိုးသား အချုပ်အခြာအာဏာ ပိုင်ဆိုင်မှု (National Sovereignty) ဆိုသော မူ ပေါ်လာသည်။ နိုင်ငံအစိုးရ (Nation-States) တို့ကို အသိအမှတ် ပြုသည်။ ဤနိုင်ငံအစိုးရတို့၏ အချုပ်အခြာအာဏာ ပိုင်ဆိုင်မှုကို အသိအမှတ် ပြုသည်။ သဘောမှာ အချုပ်အခြာအာဏာ ပိုင်ဆိုင်သော နိုင်ငံတို့၏ ပြည်တွင်းရေးတွင် ဝင်ရောက် မစွက်ဖက်ရန် မူ ချမှတ်လိုက်ခြင်း ဖြစ်သည်။ သို့ဖြင့် ဝင်ရောက် မစွက်ဖက်ရေး (Non-Intervention) မူသည် ၁၆၈၄ ခုနှစ် ဝက်စ်ဖါလီးယား စာချုပ်မှ စတင် ပေါက်ဖွားလာခြင်း ဖြစ်သည်။ အချုပ် အခြာအာဏာ ပိုင်ဆိုင်မှု၏ သင်္ကေတအနေဖြင့် နိုင်ငံအစိုးရတစ်ရပ်သည် ကိုယ့်ငွေကြေး ကိုယ် သွန်းလုပ် ထုတ်ဝေခွင့်ကို အသိအမှတ် ပြုလိုက်သည်။ ထိုမှစ၍ “တစ်နိုင်ငံ ငွေအသပြာတစ်မျိုး (One Nation, One Money) ဆိုသော ဆောင်ပုဒ်ပေါ်လာသည်။ သဘောကား ငွေအသပြာ၌ ပထဝီ တိတိကျကျ ရှိသွားပြီ။</p>
+<p>ရွှေနန်းချ၊ ဆင့်ကဲပေါ် ငွေကြေးတွေ ကိုယ့်ပထဝီနှင့် ကိုယ် ဖြစ်လာသောအခါ ငွေကြေးချင်း ယှဉ်ပြိုင် မှုတွေ ပေါ်လာသည်။ Competition between currencies ဟု ခေါ်သည်။ ဤအချက်ကပင် ငွေကြေးတို့၏ ပထဝီကို ဖျက်ဆီးတော့သည်။ ၁၉၃ဝ ပြည့်နှစ် မဟာစီးပွား ပျက်ကပ်ကြီးနှင့် ဒုတိယ ကမ္ဘာစစ်ကြီးတို့က ငွေကြေးအချို့ကို အင်တာနေရှင်နယ် လုပ်ပစ်လိုက်သည်။ Internationalization of certain currencies ဟုဆိုသည်။ ငွေကြေး တစ်ရပ်ရပ်က အင်တာနေရှင်နယ် လက္ခဏာ ဆောင်လာရာတွင် အဆင့်သုံးဆင့်ကို ဖြတ်သန်းရသည်။ ပထမ ရွှေကို ကမ္ဘာသုံးငွေအဖြစ် သုံးစွဲ နေရာမှ ရွှေစံချိန် (Gold Standard) ကို စွန့်လွှတ်လိုက်ရသည်။ ဒုတိယ အဆင့်၌ ရွှေစံချိန်နှင့် ချိတ်ဆက်ထားသော အမေရိကန်ဒေါ်လာကို ကမ္ဘာသုံးငွေအဖြစ် သုံးစွဲ လာသည်။ သို့ရာတွင် ဤအဆင့်လည်း ကြာရှည်မခံပေ။ အမေရိကန် အစိုးရက ဒေါ်လာနှင့် ရွှေ ချိတ်ဆက်ထားခြင်းကို ပယ်ဖျက်လိုက်သည်။ Demonitization of gold ဟုခေါ်သည်။ တတိယ အဆင့်၌ အပြည်ပြည်ဆိုင်ရာ ငွေကြေး ရန်ပုံငွေအဖွဲ့ IMF မှ “ဘင်ကော”ဟု ခေါ်သော ကမ္ဘာသုံးငွေ တစ်မျိုးကို တီထွင် စမ်းသပ်ကြည့်သည်။ အထူး ထုတ်ဝေခွင့် (special drawing rights) တို့ကို ကျောထောက်နောက်ခံ ထားပြီး ထုတ်ဝေရန် ဖြစ်သည်။ မအောင်မြင်ပေ။ သို့ဖြင့် ထိပ်သီးငွေ အချင်းချင်း ယှဉ်ပြိုင်ခဲ့ကြရာမှ ငွေကြေးဇုန်တွေ ပေါ်လာသည်။ ပေါင်စတာလင်ဧရိယာ၊ ဒေါ်လာဇုန် စသည်ဖြင့် ပေါ်လာသည်။ ပေါင်စတာလင် ဧရိယာသည်လည်း ပြိုလဲ သွားလေရာ ယခုနောက်ဆုံး အမေရိကန် ဒေါ်လာက ယူရိုငွေ၊ ဂျပန်ယန်းတို့နှင့် ယှဉ်ပြီး ကမ္ဘာသုံးငွေ ဖြစ်လာတော့သည်။ ငွေကြေး ယှဉ်ပြိုင်မှုတို့ကြောင့် ငွေကြေး ဖွဲ့စည်းပုံ အထပ်ထပ် ဆင့်ကဲ ဖြစ်လာသည်။ Heirarchy of currencies ဟု ခေါ်သည်။ ငွေအမာ အပျော့ လိုက်ပြီး အဆင့်ခွဲခြင်း ဖြစ်သည်။ ပိုင်နက်မှုန် ငါးမျိုး ဤအချက်မှနေ၍ ထူးခြားသော လက္ခဏာတစ်ရပ် ပေါ်လာသည်။ နိုင်ငံအသီးသီး တို့သည် မိမိတို့ ပြည်တွင်းငွေကို သာမက အခြား နိုင်ငံခြားငွေတို့ကိုလည်း အကြောင်း အမျိုးမျိုးကြောင့် ကိုင်တွယ်လာရသည်။ လည်ပတ် သုံးစွဲနေရသည်။</p>
+<p>သဘောကား ငွေကြေးတို့တွင် နယ်မြေ ပိုင်နက်တွေ မှုန်မွှားသွားခြင်း ဖြစ်သည်။ ယင်းကို Deterritoritization ဟုခေါ်သည်။ သို့ဖြင့် ငွေကြေးသမိုင်းသည် နယ်မြေပိုင်နက်နှင့် စပ်ဟပ်ပြောလျှင် သုံးဆင့် ပြောင်းလဲလာသည်။ (၁) ရှေးပဝေသဏီခေတ် ငွေကြေးတို့၌ နယ်မြေပိုင်နက် မရှိ၊ ကင်းမဲ့သည်။ Non-territoritization ဟုခေါ်သည်။ (၂) ဝက်(ဖ်)ဖါလီးယား သဘောတူညီချက်မှစ၍ ငွေကြေးတွေ နယ်မြေပိုင်နက် ပေါ်လာသည်။ Territoritization ဟုခေါ်သည်။ (၃) ယခုအဆင့်၌ ငွေကြေးတို့၌ နယ်မြေပိုင်နက်တွေ မှုန်မွှားနေပြီ။ Deterritoritization ဟုခေါ်သည်။ ဤသုံးဆင့်သည် အသပြာ၏ ပထဝီ အပြောင်းအလဲကို ထင်ဟပ်သည်။ ယခု နောက်ဆုံးအဆင့်၌ ငွေတန်ပိုးနှင့် ပတ်သက် ၍ အမြင်လည်း ပြောင်းလဲသွားသည်။ ယခင် အဆင့်တို့၌ ငွေတန်ဖိုး တက်ခြင်းသည် အင်အားဟု ထင်၍ ငွေတန်ဖိုး တက်ရန် ကြိုးပမ်းသည်။ ငွေတန်ဖိုး တက်လျှင် လက်မထောင်သည်။ ယခုအမြင်က ပြောင်းပြန်လို ဖြစ်သွားသည်။ နိုင်ငံ အတော်များများသည် မိမိတို့နိုင်ငံ ငွေကြေးများ တန်ဖိုး တက်နေခြင်းကို မလိုလားကြပေ။ ငွေတန်ဖိုးကျ နေခြင်းကို လိုလားသည်။ မိမိငွေ တန်ဖိုးကျဆင်းမှ မိမိနိုင်ငံအတွက် အကျိုးရှိနေ သည်။ မိမိငွေတန်ဖိုး ကျဆင်းရန် လုပ်ငန်းငါးမျိုး ဆောင်ရွက်နေကြသည်။ ( ၁)တရုတ်ပြည်က မိမိ ယွမ်ငွေတန်ဖိုးကို အနိမ့်အဆင့်၌ ပုံသေ သတ်မှတ်ထား သည်။ Peg ဟုခေါ်သည်။ (၂) ဂျပန်က မိမိငွေတန်ဖိုး မတက်အောင် ငွေကြေး ဈေးကွက်ထဲ ဝင်စွက်ဖက်သည်။ Intervention ဟု ခေါ်သည်။ (၃) အမေရိကား က ကုန်သွယ်ရေး လိုငွေနှင့် ဘတ်ဂျက် လိုငွေတို့ကို ဖေါ်သည်။ (၄) ဥရောပ သမဂ္ဂက အမေရိကားကို ဖိအားပေးနေသည်။ (၅) အများက ငွေကြေးလဲလှယ် ရေးနှုန်းတို့ကို ဈေးကွက် တရားအတိုင်း စီရင်စေချင်သည်။ ဒေါ်လာ နန်းချ ရမရ ငွေကြေး အသီးသီးတို့၏ ဆင့်ကဲ အထပ်ထပ် ဖွဲ့စည်းမှုတို့တွင် အမေရိကန်ဒေါ်လာ က ထိပ်ဆုံးနေရာ၌ ရောက်နေသည်။ ဤသို့ ရောက်ရသည့် အတွက် အောက် ဖော်ပြပါ အဆင့်အတန်း Status ၅ မျိုးကို ရရှိထားသည်။ (၁) ကမ္ဘာသုံး ငွေကြေး အဆင့်အတန်း Medium of Exchange ဟုခေါ်သည်။</p>
+
+</body>
+</html>
