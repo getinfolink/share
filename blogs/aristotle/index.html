@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="aristotle">Aristotle</h1>
+<p><img src="./images/img-001.png" alt="Aristotle"></p>
+<p>ငါးနှင့်တူသော်လည်း ငါးပဟုတ်ကြောင်း ခွဲခြားပြင်ခဲ့သော ထိုမျက်ဝန်း အရစ္စတိုတယ် ဝေလငါးရယ်၊ ဖျံရယ်၊ လင်းပိုင်ရယ်မှာ ဘယ်သတ္တဝါဟာ ငါး အမျိုးထဲမှာ ပါသလဲလို့ ညီလေးတို့ကို မေးခဲ့လျှင် ဘယ်လိုဖြေကြမလဲ။ ဝေလငါးပါလို့ ဖြေမိကြမှာပေါ့။ အမှန်တော့ ဝေလငါးဟာ ငါးအစစ် မဟုတ်ဘူးကွဲ့။ ညီလေးတို့၊ အစ်ကိုကြီးတို့လို နို့တိုက်သတ္တဝါမျိုး ဖြစ်တယ် လို့ လို့ပြောလျှင် ညီလေးတို့တစ်တွေ “ဟယ်”ခနဲ အံ့သြသွားကြလိမ့်မယ်။ ညီလေးတို့က ဝေလငါ ကို ငါးဖြစ်တယ်လို့ ရုတ်တရက် ဖြေလိုက်တာကို အစ်ကိုကြီး အပြစ်မပြောလိုပါဘူး။ ကြည့်လေ- ဝေလငါးက ရေထဲမှာ နေတယ်။ ငါးတစ်ကောင်လိုပဲ အမြီးတွေ၊ ရေယက်တွေ ပါနေတယ်ဆိုတော့ ရုတ်တရက် ငါးလို့ပဲ ထင်မိကြတာ မဆန်းဘူးပေါ့။ အမှန်တော့ သတ္တဝါတွေကို သူတို့နေတဲ့ ပတ်ဝန်းကျင်နဲ့ ပြင်ပ ပုံပန်းကိုကြည့်ပြီး အမျိုးအစားသတ်မှတ်တာဟာ မပြည့်စုံဘူးကွဲ့။ မြန်မာ ပြည်မှာနေတိုင်း၊ ပုဆိုးဝတ်ထားတိုင်း မြန်မာလူမျိုးလို့ ပြောလို့မရသလိုပဲ ပေါ့ကွယ်။ မျိုးခွဲနည်းပညာကို ကမ္ဘာပေါ်မှာ သိပ္ပံနည်းကျကျ ပထမဆုံး ဖော်ထုတ်ခဲ့တူသူကတော့ ဟိုးနှစ်ပေါင်း နှစ်ထောင့်သုံးရာကျော်လောက်က ဂရိနိုင်ငံမှာ ပေါ်ပေါက်ခဲ့တဲ့ သိပ္ပံပညာရှင်ကြီး အရစ္စတိုတယ် ဖြစ်တယ်။ သူ့ကို ဘီစီ ၂၈၄ ခုနှစ်လောက်က ဂရိနိုင်ငံမြောက်ပိုင်း စတာဂဲ့လော့စ် မြို့ကလေးမှာ မွေးဖွားခဲ့တယ်။ အဲဒီအချိန်တုန်းက ဂရိနိုင်ငံဟာ ဥရောပ တိုက်တစ်တိုက်လုံးမှာ ယဉ်ကျေးမှုအထွန်းကားဆုံး နိုင်ငံတစ်ခု ဖြစ်ခဲ့တာ ပေါ့ကွယ်။ အရစ္စတိုတယ်ဟာ အသက် ၁၇ နှစ်သား အရွယ်မှာ အာဘီနက် မြို့မှာရှိတဲ့ ပညာရှိကြီး ပလေတိုထံမှာ ပညာဆည်းပူးခဲ့တယ်။ သူဟာ ငယ်ငယ်ကလေးထဲက စူးစမ်းတာ ဝါသနာပါလေတော့ ကြက်ဥကနေ ကြက်ကလေး ဘယ်လို အဆင့်ဆင့်ပြောင်းလဲလာတယ်ဆိုတာ အသေးစိတ် တိတိကျကျလေ့လာပြီး ဖော်ပြခဲ့တယ်။ အခြားအကောင်အမျိုးမျိုး၊ အပင် အမျိုးမျိုးကိုလည်း စနစ်တကျလေ့လာခဲ့လို ပလေတိုရဲ့ အကယ်ဒီမီးယား ဆိုတဲ့ ကျောင်းတော်ကြီးမှာ အတော်ဆုံးတပည့် ဖြစ်ခဲ့တယ်။ ဆရာကြီး ပလေတိုကတောင် “တစ်ခြားကျောင်းသားတွေရဲ့ ခေါင်းထဲမှာ အဝိဇ္ဇာပဲ ရှိတယ်။ အရစ္စတိုရဲ့ ခေါင်းထဲမှာတော့ ဉာဏ်ပညာတွေနဲ့ ပြည့်နေတယ် လို့” ချီးကျူးပြောဆိုခဲ့ရတယ်။ ဒီလိုနဲ့ အရစ္စတိုတယ်ဟာ အနှစ်နှစ်ဆယ်လုံးလုံး အရှေ့အလယ်ပိုင်း ဒေသတစ်ဝှမ်းလုံးကို လှည့်လည်သွားလာပြီး အပင်တွေ၊ အကောင်တွေကို လေ့လာကာ သိပ္ပံကျမ်းပေါင်းများစွာကို ရေးနိုင်ခဲ့တယ်။ အထူးသဖြင့် တိရစ္ဆာန်အမျိုးမျိုးကို ပိုပြီး စိတ်ဝင်စားခဲ့တယ်။ ဒါကြောင့်လဲပဲ နောင်လာ နောက်သားတွေက အရစ္စတိုတယ်ကို “ဇီဝဗေဒပညာ၏ ဖခင်ကြီး”ရယ်လို့ တင်စားခေါ်ဝေါ်ခဲ့တာပေါ့ကွယ်။ ရှေးတုန်းက ဝေလငါးဟာ အခုလို မရှားပါးသေးဘူး။ နေရာတိုင်း မှာ တွေ့နိုင်တယ်။ ဂရိနိုင်ငံမှာလည်း အများကြီးတွေ့ရတယ်။ ဝေလငါးက ရေထဲမှာနေပြီး အမြီးတွေ၊ ရေယက်တွေနဲ့ ကူးခတ်သွားလာနေလေတော့ ဧရာမငါးသတ္တဝါကြီးတွေလို့ လူတိုင်းက ထင်မှတ်ခဲ့ကြတာ မဆန်းဘူးပေါ့ ကွယ်။ ဒါပေမယ့် အရစ္စတိုတယ်ကတော့ သူများတွေလို အပေါ်ယံလောက် ကိုသာကြည့်ပြီး အလောသုံးဆယ် မဆုံးဖြတ်ဘူး။ ဝေလငါးဟာ ငါးနဲ့ တူတာ မှန်ပေမယ့် ငါးနဲ့ခြားနားချက်တွေကိုလည်း သတိထား ကြည့်ရှုမိ တယ်။ ငါးဆိုတာ အကြေးခွံ ရှိတယ်။ ပါးဟက်နဲ့ အသက်ရှူတယ်။ ဥက ပေါက်တယ်။ ဝေလငါးမှာက အကြေးခွံလည်း မရှိဘူး၊ ပါးဟက်နဲ့ အသက်မရှူဘဲ အဆုတ်နဲ့ အသက်ရှူတယ်။ ဥကမပေါက်ဘဲ အကောင် လိုက် မွေးဖွားတယ်။ ပြီးတော့ သားငယ်တွေကို နို့ချိုတိုက်ကျွေးပြန်သေး တယ်။ ဒီလိုဆိုရင် ဝေလငါးဟာ ရေထဲမှာနေတာ မှန်ပေမယ့်၊ ငါးနဲ့ တူပေမယ့် ငါး မဖြစ်နိုင်ဘူး။ ကုန်းပေါ်မှာနေထိုင်ကြတဲ့ သတ္တဝါတွေထဲက အဆင့်အတန်း အမြင့်မားဆုံးဖြစ်တဲ့ နို့တိုက်သတ္တဝါပဲ ဖြစ်ရမယ်လို့ အရစ္စတိုတယ်က ကောက်ချက်ချလိုက်တယ်။ သက်ရှိတွေရဲ့ တူညီတဲ့အရည်အချင်းတွေကို နှိုင်းယှဉ်ပြီး အုပ်စုခွဲတဲ့ ပညာကို သိပ္ပံပညာရပ်ထဲမှာ တက်ဖိုနိုမိ(သရုပ်ခွဲလေ့လာပညာ)လို့ ခေါ် တယ်ကွဲ့။ ဒီလိုဆိုရင် အရစ္စတိုတယ်ဟာ သတ္တဗေဒဘာသာရပ်နယ်ပယ်မှာ သရုပ်ခွဲလေ့လာခြင်း ပညာရပ်ကို ပထမဦးဆုံး အသုံးပြုခဲ့တဲ့ ပညာရှင်ကြီးလို့ ခေါ်ရမှာပေါ့ကွယ်။ သူဟာ သတ္တဝါတွေရဲ့ အရိုးရှင်းဆုံး ဖွဲ့စည်းတည် ဆောက်ပုံကနေ အရှုပ်ထွေးဆုံးအဆင့်အထိ စနစ်တကျလေ့လာပြီး ဝေလငါးဟာ လူ၊ မြင်း၊ သမင် စတဲ့ အမြင့်မားဆုံး နို့တိုက်သတ္တဝါပဲ ဖြစ်တယ်လို့ ပြောင်မြောက်စွာ ဖော်ထုတ်နိုင်ခဲ့တယ်။ ဒါဟာ သတ္တဗေဒ လောကကြီးမှာ အလွန်ကြီးမားတဲ့ အောင်မြင်မှုတစ်ခု ဖြစ်တယ်လို့ ဆိုကြရ လိမ့်မယ်။ ဘာကြောင့်လဲဆိုတော့ သူမတိုင်ခင်က ပညာရှင်အားလုံးဟာ ဝေလငါးတို့၊ လင်းပိုင်တို့ကို ငါးအုပ်မျိုးအုပ်စုထဲမှာ ထည့်ထားခဲ့ကြလို့ပဲ ဖြစ်တယ်။ အမှန်တော့ အရစ္စတိုတယ်ဟာ လုံးဝ အမှားကင်းတဲ့ ပညာရှင် တစ်ယောက်တော့ မဟုတ်ရှာပါဘူးကွဲ့။ သူ့ဆရာကြီးဖြစ်တဲ့ ပလေတိုရဲ့ သင်ကြားချက်ကို မျက်စေ့မှိတ်ယုံကြည်ခဲ့သူ ဖြစ်လေတော့ သဘာဝတရား ကြီးမှာ ရေ၊ လေ၊ မြေ၊ မီး ဆိုတဲ့ ဒြပ်စင်လေးမျိုးသာရှိပြီး လေဟာနယ် ဆိုတာ မရှိကြောင်း၊ ပိုးမွှား၊ ယင်ကောင်များသည် အမှိုက်သရိုက်မှတစ်ဆင့် ဖြစ်လာကြောင်း စသည်ဖြင့် ဒီနေ့သိပ္ပံအမြင်နဲ့ ကြည့်လိုက်ရင် အလွန် မှားယွင်းတဲ့ အယူအဆတွေကိုလည်း ဖော်ထုတ်ခဲ့သေးတယ်။ ဒါဟာလည်း ခွင့်လွှတ်သင့်တဲ့ အမှားတွေပေါ့ကွယ်။ သိပ္ပံပညာရပ်သဘာဝကို ထာဝရ အကြွင်းမဲ့မှန်ကန်တဲ့ တရားကို လက်မခံဘူးလေ။ နယူတန်ရဲ့လက်ထက်က အမှန်တရားဟာ အိုင်စတိုင်းလက်ထက်ကျတော့ သုံးမရတော့သလိုပေါ့ ကွယ်။ အခုလို သိပ္ပံပညာရပ်တွေ ဒီရေအလား တိုးတက်နေတဲ့ ခေတ်ကြီး မှာ သီအိုရီတို့၊ သဘောတရားတို့ဆိုတာ အမြဲပြောင်းလဲနေတတ်ကြောင်း ပိုပြီး ထင်ထင်ရှားရှား တွေ့လာရတာပဲ မဟုတ်လား။ ဒီတော့ မိမိရဲ့ တပည့်တပန်းတွေနဲ့ လွတ်လွတ်လပ်လပ် ဆွေးနွေး သုတေသနပြုမှုကြောင့် သိပ္ပံပညာရပ်ကြီးတစ်ခုလုံးရဲ့ အခြေခံစည်းမျဉ်း ကြီးတွေကို ဖော်ထုတ်နိုင်ခဲ့တဲ့ ဆရာကြီး အရစ္စတိုတယ်ရဲ့ ကြီးမြတ်စူးရှ လှတဲ့ မျက်ဝန်းအစုံကိုတော့ အစ်ကိုကြီးတို့၊ ညီလေးတို့က ဂုဏ်ပြုအတုယူ ကြရမှာပေါ့ကွယ်။</p>
+
+</body>
+</html>
