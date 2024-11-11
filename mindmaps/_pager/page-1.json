@@ -1,0 +1,105 @@
+[
+  {
+    "author": {
+      "name": "Aung Thu Oo",
+      "image": "https://raw.githubusercontent.com/aungthuoo/apis/main/personal/ato/ato.jpeg",
+      "position": "Senior developer",
+      "link": "https://linkedin.com/in/aungthuoo"
+    },
+    "site": "https://raw.githubusercontent.com/aungthuoo/apis/main/blogs/",
+    "link": "https://aungthuoo.github.io/share/mindmaps/understanding-es6/index.html", 
+    "categories": [
+      {
+        "name": "CSS"
+      },
+      {
+        "name": "TailwindCSS"
+      }
+    ],
+    "date": "6 Nov, 2024",
+    "title": "Understanding ES6",
+    "slug": "reactjs-hooks",
+    "images": [
+      "images/img-001.gif"
+    ],
+    "description": "Understanding ES6"
+  },
+  {
+    "author": {
+      "name": "Aung Thu Oo",
+      "image": "https://raw.githubusercontent.com/aungthuoo/apis/main/personal/ato/ato.jpeg",
+      "position": "Senior developer",
+      "link": "https://linkedin.com/in/aungthuoo"
+    },
+    "site": "https://raw.githubusercontent.com/aungthuoo/apis/main/blogs/",
+    "link": "https://aungthuoo.github.io/share/mindmaps/tailwind-css-classes-and-directives/index.html", 
+    "categories": [
+      {
+        "name": "CSS"
+      },
+      {
+        "name": "TailwindCSS"
+      }
+    ],
+    "date": "6 Nov, 2024",
+    "title": "Tailwind CSS classes and directives",
+    "slug": "reactjs-hooks",
+    "images": [
+      "images/img-001.gif"
+    ],
+    "description": "Tailwind CSS classes and directives"
+  },
+  {
+    "author": {
+      "name": "Aung Thu Oo",
+      "image": "https://raw.githubusercontent.com/aungthuoo/apis/main/personal/ato/ato.jpeg",
+      "position": "Senior developer",
+      "link": "https://linkedin.com/in/aungthuoo"
+    },
+    "site": "https://raw.githubusercontent.com/aungthuoo/apis/main/blogs/",
+    "link": "https://aungthuoo.github.io/share/mindmaps/reactjs-hooks/index.html", 
+    "categories": [
+      {
+        "name": "CSS"
+      },
+      {
+        "name": "TailwindCSS"
+      }
+    ],
+    "date": "24 Oct, 2024",
+    "title": "React.js Hooks",
+    "slug": "reactjs-hooks",
+    "images": [
+      "images/img-001.gif"
+    ],
+    "description": "React hooks are a powerful feature in React that allow you to add state and other features to functional components. I’ll explore some of the most commonly used React hooks and provide easy-to-understand examples."
+  },
+  {
+    "author": {
+      "name": "Aung Thu Oo",
+      "image": "https://raw.githubusercontent.com/aungthuoo/apis/main/personal/ato/ato.jpeg",
+      "position": "Senior developer",
+      "link": "https://linkedin.com/in/aungthuoo"
+    },
+    "site": "https://raw.githubusercontent.com/aungthuoo/apis/main/blogs/",
+    "link": "https://aungthuoo.github.io/share/mindmaps/understanding-nextjs/index.html", 
+    "categories": [
+      {
+        "name": "React.js"
+      },
+      {
+        "name": "JavaScript"
+      },
+      {
+        "name": "Miroservice"
+      }
+    ],
+    "date": "21 Oct, 2024",
+    "title": "Understanding Next.js",
+    "slug": "understanding-nextjs",
+    "images": [
+      "images/img-001.gif"
+    ],
+    "description": "A Micro Frontend is an architectural approach for web applications where the front-end code is divided into smaller, independently developed and deployable units called micro frontends. "
+  }
+]
