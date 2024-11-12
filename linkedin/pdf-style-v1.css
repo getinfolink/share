@@ -1,0 +1,53 @@
+body {
+  background-color: #1e0370; 
+  color:white; 
+}
+
+/* body {
+  background-image: url("file:///home/andrew/__/portfolio/projects/getshare/assets/bg/paper.png"); 
+  background-size: cover;
+  background-position: center;
+} */
+
+/* Ensure background color or image covers the full page */
+@page {
+  size: A5; /* Adjust to your preferred page size */
+  /* margin: 0;  */
+  
+
+  background-image: url("file:///home/andrew/__/portfolio/projects/getshare/assets/bg/paper.png"); 
+  background-size: cover;
+  background-position: center;
+
+  background-color: #090121; 
+  color:white; 
+}
+
+/* Center content alignment */
+.markdown-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center-align text */
+  
+  width: 100%; /* Ensure content takes full width */
+  height: 100vh; /* Full height to center vertically */
+  box-sizing: border-box;
+
+  padding: 60px 50px;
+}
+
+/*
+@media print {
+  body {
+    background-image:  url("file:///home/andrew/__/portfolio/projects/getshare/assets/bg/paper.png"); 
+    background-size: cover;
+    background-position: center;
+  }
+  
+  @page {
+    margin: 0;
+  }
+}
+  */
