@@ -3,7 +3,6 @@
 ![](https://media.licdn.com/dms/image/D4D12AQE7-n46XKs6yA/article-cover_image-shrink_600_2000/0/1678766687037?e=2147483647&v=beta&t=F05a7Xz55kIxOgdtQ3hEG-NfaQl-Yzyzg1zjj47IW1s)
 
 
-
 <mark>Middleware functions allow you to handle and modify requests and responses objects, end response cycle and call next middleware.</mark>
 
 <u>Very common example of middleware is cors module.</u> To add CORS support, simply install it, require it and put this line:
