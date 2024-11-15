@@ -365,102 +365,47 @@ code {
           : 'default'
     });
   </script>
-<h1 id="nodejs-development-environment-with-docker-and-hot-code-reloading">Node.js Development Environment with Docker and Hot Code Reloading</h1>
-<p><mark>Hot Module Reload (HMR)</mark> is a feature primarily <u>useful in development environments</u>. It allows you to see changes instantly in your application <mark>without needing a full refresh or restart</mark>. <u>This feature significantly enhances the development workflow by maintaining the application’s state while updating the changes</u>.</p>
-<h2 id="installation">Installation</h2>
-<p>To get started, you'll need to set up a new Node.js project and install the necessary dependencies.</p>
-<pre class="hljs"><code><div>  mkdir project
-  <span class="hljs-built_in">cd</span> project
-  npm init -y 
-  npm i express 
-  npm i --save-dev nodemon 
-</div></code></pre>
-<h2 id="project-structure">Project Structure</h2>
-<pre class="hljs"><code><div>  project/
-    ├── app/
-    │   └── server.js
-    ├── docker-compose.yml
-    ├── .env
-    └── package.json
+<h1 id="nodejs-basic-routing">Node.js Basic Routing</h1>
+<h2 id="initialize-the-app">Initialize the App</h2>
+<pre class="hljs"><code><div>  <span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+  <span class="hljs-keyword">const</span> app = express();
 </div></code></pre>
 <div style="page-break-after: always;"></div>
-<h2 id="working-code">Working code</h2>
-<h3 id="appserverjs-file"><code>app/server.js</code> File</h3>
-<p>Here’s an example of the server.js file where we configure an Express server to serve a basic message:</p>
-<pre class="hljs"><code><div><span class="hljs-comment">// app/server.js</span>
-<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
-<span class="hljs-keyword">const</span> app = express();
-<span class="hljs-keyword">const</span> PORT = process.env.PORT || <span class="hljs-number">1234</span>;
+<h2 id="define-routes">Define Routes</h2>
+<p>Use specific HTTP methods:</p>
+<pre class="hljs"><code><div>  app.get(<span class="hljs-string">'/myPath'</span>, (req, res, next) =&gt; {})
+  app.post(<span class="hljs-string">'/myPath'</span>, (req, res, next) =&gt; {})
+  app.put(<span class="hljs-string">'/myPath'</span>, (req, res, next) =&gt; {})
+  app.delete(<span class="hljs-string">'/myPath'</span>, (req, res, next) =&gt; {})
+</div></code></pre>
+<p>Apply to all methods for a route:</p>
+<pre class="hljs"><code><div>  app.all(<span class="hljs-string">'/myPath'</span>, (req, res, next) =&gt; {})
+  app.use(<span class="hljs-string">'/myPath'</span>, (req, res, next) =&gt; {})
+  app.use(<span class="hljs-string">'*'</span>, (req, res, next) =&gt; {})  <span class="hljs-comment">// wildcard for all paths</span>
+</div></code></pre>
+<div style="page-break-after: always;"></div>
+<h2 id="chaining-for-a-single-path">Chaining for a Single Path</h2>
+<pre class="hljs"><code><div>  app.route(<span class="hljs-string">'/myPath'</span>)
+    .get(<span class="hljs-function">(<span class="hljs-params">req, res, next</span>) =&gt;</span> {})
+    .post(<span class="hljs-function">(<span class="hljs-params">req, res, next</span>) =&gt;</span> {})
+    .put(<span class="hljs-function">(<span class="hljs-params">req, res, next</span>) =&gt;</span> {})
+</div></code></pre>
+<h2 id="middleware-functions">Middleware Functions</h2>
+<p>Add middleware before the final callback:</p>
+<pre class="hljs"><code><div>  app.get(<span class="hljs-string">'/myPath'</span>, myFunction, (req, res, next) =&gt; {})
+</div></code></pre>
+<div style="page-break-after: always;"></div>
+<h2 id="organize-route-handlers">Organize Route Handlers</h2>
+<p>Store route handlers in separate files for cleaner code:</p>
+<pre class="hljs"><code><div>  <span class="hljs-comment">// other.js</span>
+  exports.doSomething = <span class="hljs-function">(<span class="hljs-params">req, res, next</span>) =&gt;</span> { <span class="hljs-comment">/* do stuff */</span> };
 
-app.get(<span class="hljs-string">'/'</span>, (req, res) =&gt; {
-  res.send(<span class="hljs-string">'Hello, Docker with hot reloading...1!'</span>);
-});
-
-app.listen(PORT, () =&gt; {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Server running at http://localhost:<span class="hljs-subst">${PORT}</span>`</span>);
-});
+  <span class="hljs-comment">// main file</span>
+  <span class="hljs-keyword">const</span> other = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./other.js'</span>);
+  app.get(<span class="hljs-string">'/someUri'</span>, myFunction, other.doSomething);
 </div></code></pre>
-<div style="page-break-after: always;"></div>
-<h3 id="packagejson-file">package.json File</h3>
-<p>Your <code>package.json</code> should include a script to start the development server using nodemon, which automatically restarts the server when file changes are detected.</p>
-<pre class="hljs"><code><div>{
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"docker-hot-reload-example"</span>,
-  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0.0"</span>,
-  <span class="hljs-attr">"main"</span>: <span class="hljs-string">"app/server.js"</span>,
-  <span class="hljs-attr">"scripts"</span>: {
-    <span class="hljs-attr">"dev"</span>: <span class="hljs-string">"nodemon app/server.js"</span>
-  },
-  <span class="hljs-attr">"dependencies"</span>: {
-    <span class="hljs-attr">"express"</span>: <span class="hljs-string">"^4.17.1"</span>
-  },
-  <span class="hljs-attr">"devDependencies"</span>: {
-    <span class="hljs-attr">"nodemon"</span>: <span class="hljs-string">"^2.0.22"</span>
-  }
-}
-</div></code></pre>
-<div style="page-break-after: always;"></div>
-<h3 id="docker-composeyml-file"><code>docker-compose.yml</code> File</h3>
-<p>Docker Compose is used to simplify the setup. The <code>docker-compose.yml</code> configuration defines the app service with necessary volumes and environment variables for hot reloading.</p>
-<pre class="hljs"><code><div><span class="hljs-attr">version:</span> <span class="hljs-string">'3'</span>
-  <span class="hljs-attr">services:</span>
-    <span class="hljs-attr">app:</span>
-      <span class="hljs-attr">image:</span> <span class="hljs-string">node:18</span>
-      <span class="hljs-attr">working_dir:</span> <span class="hljs-string">/usr/src/app</span>
-      <span class="hljs-attr">volumes:</span>
-        <span class="hljs-bullet">-</span> <span class="hljs-string">.:/usr/src/app</span>  <span class="hljs-comment"># Mounts the project for hot reloading</span>
-        <span class="hljs-bullet">-</span> <span class="hljs-string">nodemodules:/usr/src/app/node_modules</span>  <span class="hljs-comment"># Uses named volume for node_modules</span>
-      <span class="hljs-attr">environment:</span>
-        <span class="hljs-bullet">-</span> <span class="hljs-string">NODE_ENV=development</span>
-      <span class="hljs-attr">command:</span> <span class="hljs-string">bash</span> <span class="hljs-string">-c</span> <span class="hljs-string">"npm install &amp;&amp; npm run dev"</span>
-      <span class="hljs-attr">ports:</span>
-        <span class="hljs-bullet">-</span> <span class="hljs-string">"1234:1234"</span>  <span class="hljs-comment"># Maps container port to localhost</span>
-
-  <span class="hljs-attr">volumes:</span>
-    <span class="hljs-attr">nodemodules:</span>
-      <span class="hljs-attr">driver:</span> <span class="hljs-string">local</span>  <span class="hljs-comment"># Defines the named volume for node_modules</span>
-</div></code></pre>
-<div style="page-break-after: always;"></div>
-<h3 id="env-configuration"><code>.env</code> Configuration</h3>
-<p>Create a .env file to store environment variables such as the port number and the environment mode.</p>
-<pre class="hljs"><code><div>  PORT=1234
-  NODE_ENV=development
-</div></code></pre>
-<div style="page-break-after: always;"></div>
-<h2 id="build-project">Build Project</h2>
-<p>To build and start your project, use the following Docker Compose commands:</p>
-<pre class="hljs"><code><div>  docker compose build
-  docker compose up -d
-</div></code></pre>
-<div style="page-break-after: always;"></div>
-<h2 id="output">Output</h2>
-<h3 id="httplocalhost1234"><code>http://localhost:1234/</code></h3>
-<p><img src="./images/img-001.png" alt=""></p>
-<div style="page-break-after: always;"></div>
-<p>This will build the project and run it in the background with hot code reloading enabled. Any changes made to the application files will be reflected immediately without the need to restart the server manually.</p>
-<p>By using Docker and hot reloading in your <code>Node.js</code> development environment, you can streamline your development process and improve productivity.</p>
 <div style="page-break-after: always;"></div>
 <p><img src="../../assets/ads/img-001.png" alt=""></p>
-
 
 </body>
 </html>
