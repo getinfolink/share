@@ -1,0 +1,35 @@
+{
+  "author": {
+    "name": "Aung Thu Oo",
+    "image": "https://raw.githubusercontent.com/aungthuoo/apis/main/personal/ato/ato.jpeg",
+    "position": "Senior developer",
+    "link": "https://linkedin.com/in/aungthuoo"
+  },
+  "site": "https://raw.githubusercontent.com/aungthuoo/apis/main/blogs/",
+  "link": "https://aungthuoo.github.io/share/topics/the-complete-guide-to-micro-frontend-with-reactjs/index.html", 
+  "categories": [
+    {
+      "name": "React.js"
+    },
+    {
+      "name": "JavaScript"
+    },
+    {
+      "name": "Miroservice"
+    }
+  ],
+  "date": "5 Oct, 2024",
+  "title": "The Complete Guide to Micro Frontend with React.js",
+  "slug": "the-complete-guide-to-micro-frontend-with-reactjs",
+  "gist": "67f09992e02b237f8e1d8f8b7bd5a98f", 
+  "images": [
+    "images/img-001.gif"
+  ],
+  "description": "A Micro Frontend is an architectural approach for web applications where the front-end code is divided into smaller, independently developed and deployable units called micro frontends. ",
+  "links" : {
+    "html" : "",
+    "tiktop" : "",
+    "youtube" : "", 
+    "mindmap" : "" 
+  }
+}
