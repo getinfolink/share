@@ -27,9 +27,9 @@
   ],
   "description": "A Micro Frontend is an architectural approach for web applications where the front-end code is divided into smaller, independently developed and deployable units called micro frontends. ",
   "links" : {
-    "html" : "",
-    "tiktop" : "",
-    "youtube" : "", 
-    "mindmap" : "" 
+    "html" : "https://getinfolink.github.io/share/blogs/aristotle/index.html",
+    "tiktop" : "https://getinfolink.github.io/share/blogs/aristotle/index.html",
+    "youtube" : "https://getinfolink.github.io/share/blogs/aristotle/index.html", 
+    "mindmap" : "https://getinfolink.github.io/share/blogs/aristotle/index.html" 
   }
 }
